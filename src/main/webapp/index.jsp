@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World this is from sumit..... using git and maven and jenkin deploying to tomcat 8 directally......</h2>
+<h2>Complete CI/CD pipeline starting from Devloper pussing code to git repo, Code build by maven by help of jenkin and finally deploying to tomcat sercer</h2>
 </body>
 </html>
