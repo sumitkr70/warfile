@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    environment{
+       PATH="/opt/maven3/bin:$PATH" 
+    }
+    stages{
+        stage("git code"){
+            steps{
+                git 'https://github.com/sumitkr70/warfile'
+            }
+        }
+        stage("mvn build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage("Deploy to Tomcat"){
+            steps{
+                deploy adapters: [tomcat8(credentialsId: '3644f3c7-6c6e-48f9-88a3-9de755284586', path: '', url: 'http://65.0.105.222:8088')], contextPath: null, war: '**/*.war'
+            }
+        }
+    }
+}
